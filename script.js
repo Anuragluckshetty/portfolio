@@ -1,5 +1,5 @@
 /**
- * script.js — Anurag Luckshetty Portfolio
+ * script.js — Anurag Luckshetty
  *
  * Sections:
  *   1. EmailJS setup (⚠️ configure before deploying)
