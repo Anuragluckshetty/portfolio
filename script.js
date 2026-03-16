@@ -34,13 +34,13 @@
    Step 5 — Save and deploy. Messages will now arrive at Gmail.
    ============================================================== */
 
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz456'
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'aBcDeFgHiJkLmNoP'
+const EMAILJS_SERVICE_ID  = 'service_anurag';   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'template_fauf5mu';  // e.g. 'template_xyz456'
+const EMAILJS_PUBLIC_KEY  = 'JmbaVOWbNEInLyv4w';   // e.g. 'aBcDeFgHiJkLmNoP'
 
 // initialise once the SDK is loaded
 (function initEmailJS() {
-  if (typeof emailjs !== 'undefined') {
+  if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'PUBLIC_KEY_HERE') {
     emailjs.init(EMAILJS_PUBLIC_KEY);
   }
 })();
@@ -318,6 +318,20 @@ contactForm.addEventListener('submit', async function handleFormSubmit(e) {
     return;
   }
 
+  // --- check if EmailJS is configured, use fallback if not ---
+  if (EMAILJS_PUBLIC_KEY === 'PUBLIC_KEY_HERE' || EMAILJS_SERVICE_ID === 'service_YOUR_SERVICE_ID') {
+    // EmailJS not configured, use direct email fallback
+    const sub  = encodeURIComponent(subject || `Message from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const fallbackLink = `mailto:anuragluckshetty08@gmail.com?subject=${sub}&body=${body}`;
+    showStatus('info', 'Opening email client...');
+    setTimeout(() => {
+      window.location.href = fallbackLink;
+      resetButton();
+    }, 500);
+    return;
+  }
+
   // --- loading state ---
   setButtonLoading(true);
   showStatus('loading', '<span class="spinner"></span> Sending your message...');
@@ -346,7 +360,7 @@ contactForm.addEventListener('submit', async function handleFormSubmit(e) {
 
     // build a mailto: fallback so the user isn't stuck
     const sub  = encodeURIComponent(subject || `Message from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
     const fallbackLink = `mailto:anuragluckshetty08@gmail.com?subject=${sub}&body=${body}`;
 
     showStatus(
@@ -393,4 +407,15 @@ function resetButton() {
   sendBtn.disabled = false;
   sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
   hideStatus();
+}
+
+/* ==============================================================
+   11. VIEW RESUME
+   ============================================================== */
+const viewResumeBtn = document.getElementById('viewResumeBtn');
+
+if (viewResumeBtn) {
+  viewResumeBtn.addEventListener('click', () => {
+    window.open('resume.pdf', '_blank', 'noopener,noreferrer');
+  });
 }
