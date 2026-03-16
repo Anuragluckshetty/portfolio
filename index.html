@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Anurag Luckshetty</title>
+<title>Anurag Luckshetty — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -32,13 +32,16 @@
   --bg: #f0f4f8;
   --bg2: #e2e8f0;
   --bg3: #ffffff;
-  --glass: rgba(255,255,255,0.6);
-  --glass-border: rgba(0,0,0,0.08);
+  --glass: rgba(0,0,0,0.03);
+  --glass-border: rgba(0,0,0,0.12);
   --text: #0f172a;
-  --text-muted: #475569;
-  --card-bg: rgba(255,255,255,0.85);
-  --nav-bg: rgba(240,244,248,0.9);
-  --shadow: 0 8px 40px rgba(0,0,0,0.1);
+  --text-muted: #334155;
+  --card-bg: rgba(255,255,255,0.9);
+  --nav-bg: rgba(240,244,248,0.95);
+  --accent: #0891b2;
+  --accent2: #5b21b6;
+  --accent3: #ea580c;
+  --shadow: 0 8px 40px rgba(0,0,0,0.08);
 }
 
 /* ---- reset ---- */
@@ -545,6 +548,10 @@ nav.scrolled {
   background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.3);
   color: #a78bfa; display: block;
 }
+.form-status.info {
+  background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3);
+  color: #3b82f6; display: block;
+}
 .spinner {
   display: inline-block; width: 14px; height: 14px;
   border: 2px solid rgba(255,255,255,0.3); border-top-color: currentColor;
@@ -705,7 +712,10 @@ footer {
           AIML student at NMAM Institute of Technology, passionate about building impactful software — from privacy-first tools to ML models that solve real problems.
         </p>
         <div class="hero-btns reveal reveal-delay-4">
-          <a href="#" class="btn-primary" download>
+          <button class="btn-primary" id="viewResumeBtn">
+            <i class="fas fa-file-pdf"></i> View Resume
+          </button>
+          <a href="resume.pdf" class="btn-outline" download="Anurag_Luckshetty_Resume.pdf">
             <i class="fas fa-download"></i> Download Resume
           </a>
           <a href="#projects" class="btn-outline">
@@ -731,7 +741,7 @@ footer {
       <div class="hero-image-wrap reveal">
         <div class="hero-img-ring">
           <div class="hero-avatar">
-            <span class="initials">AL</span>
+            <img src="image.jpeg " alt="AL Logo" class="avatar-img" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
           </div>
         </div>
         <div class="hero-float-card card1">
@@ -783,9 +793,8 @@ footer {
       <div class="about-text reveal reveal-delay-2">
         <div class="section-tag">About Me</div>
         <h2 class="section-title">Turning Ideas into <br/>Real Solutions</h2>
-        <p>I'm a passionate Computer Science student at NMAM Institute of Technology (Class of 2027), driven by the belief that great software can change the world. I thrive at the intersection of software engineering and machine learning.</p>
-        <p>My journey began with Java — building everything from hotel management systems to data structures — and expanded into the fascinating world of machine learning, where I've worked on churn prediction, spam classification, and more.</p>
-        <p>I care deeply about privacy, clean code, and user impact. My project SafeLens reflects this commitment — a privacy-first file integrity tool that never compromises on security.</p>
+        <p>I’m a Computer Science student at NMAM Institute of Technology (Class of 2027) passionate about building impactful software at the intersection of software engineering and machine learning.</p>
+          <p>I started with Java, developing projects like hotel management systems and data structure implementations, and later expanded into ML projects such as churn prediction and spam classification. I value privacy, clean code, and real-world impact, which inspired my projects</p>
         <div class="about-interests">
           <div class="interest-chip"><i class="fab fa-java"></i> Java Development</div>
           <div class="interest-chip"><i class="fas fa-brain"></i> Machine Learning</div>
