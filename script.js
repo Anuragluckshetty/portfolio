@@ -416,6 +416,6 @@ const viewResumeBtn = document.getElementById('viewResumeBtn');
 
 if (viewResumeBtn) {
   viewResumeBtn.addEventListener('click', () => {
-    window.open('resume.pdf', '_blank', 'noopener,noreferrer');
+    window.open('/resume.pdf', '_blank', 'noopener,noreferrer');
   });
 }
